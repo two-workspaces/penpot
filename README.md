@@ -8,7 +8,7 @@
 
 The stack is five services and a bucket: Penpot (the web app), Backend, Exporter, Postgres, Valkey, and the Assets bucket.
 
-- **Upstream's own images, pinned.** `penpotapp/frontend`, `penpotapp/backend` and `penpotapp/exporter` at a fixed release (2.18.6), not the moving `latest` tag. Upgrading is bumping the three tags together.
+- **Upstream's own images, pinned.** `penpotapp/frontend`, `penpotapp/backend` and `penpotapp/exporter` at a fixed release (2.18.7), not the moving `latest` tag. Upgrading is bumping the three tags together.
 - **Assets in a Railway bucket.** Upstream's compose file shares one disk between the web server and the backend; Railway services cannot share a volume, so uploads go to S3 instead. The backend stores objects in the bucket and answers each request with a short-lived signed URL, which the Penpot web server fetches and streams back. Browsers only ever talk to your Penpot domain.
 - **Migrations on every boot.** The backend migrates the database at start-up and Railway's health check on `/readyz` only passes once it is connected to Postgres and Valkey.
 - **Survives redeploys of any service.** The web server proxies `/api`, `/assets` and websockets to the backend and exports to the exporter over the private network, re-resolving their addresses while it runs, so redeploying the backend never leaves the web app pointing at a dead address, and the web app can start before the others.

@@ -16,7 +16,7 @@
         "restartPolicyMaxRetries": 10
       },
       "source": {
-        "image": "penpotapp/frontend:2.18.6"
+        "image": "penpotapp/frontend:2.18.7"
       },
       "networking": {
         "serviceDomains": {
@@ -73,7 +73,7 @@
         "restartPolicyMaxRetries": 10
       },
       "source": {
-        "image": "penpotapp/backend:2.18.6"
+        "image": "penpotapp/backend:2.18.7"
       },
       "networking": {
         "serviceDomains": {}
@@ -183,7 +183,7 @@
         "restartPolicyMaxRetries": 10
       },
       "source": {
-        "image": "penpotapp/exporter:2.18.6"
+        "image": "penpotapp/exporter:2.18.7"
       },
       "networking": {
         "serviceDomains": {}
